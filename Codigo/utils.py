@@ -119,7 +119,7 @@ def check_in():
             print(
                 f"\nQuarto {item['num_quarto']} foi ocupado pelo hóspede "
                 f"{item['nome_hospede']}")
-
+    
             print(f"Diária: R$ {item['diaria']:.2f}")
             print(f"Quantidade de dias de hospedagem: {item['dias']}")
 

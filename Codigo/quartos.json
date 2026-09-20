@@ -9,11 +9,11 @@
     },
     {
         "num_quarto": 2,
-        "nome_hospede": "danie",
-        "idade_hospede": 18,
-        "diaria": 20,
-        "dias": 40,
-        "status": "ocupado"
+        "nome_hospede": "0",
+        "idade_hospede": "",
+        "diaria": 0,
+        "dias": 0,
+        "status": "livre"
     },
     {
         "num_quarto": 3,
