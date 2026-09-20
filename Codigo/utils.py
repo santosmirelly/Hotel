@@ -73,7 +73,7 @@ def check_in():
                 print("\nQuarto não disponível para hospedagem.")
                 continue
             try:
-                diaria = float(input("Digite o valor da diária: "))
+                diaria = int(input("Digite o valor da diária: "))
             except ValueError:
                 print("Digite um valor válido para a diária!")
                 continue
@@ -116,7 +116,7 @@ def mapa_quartos():
                 f"O Quarto {item['num_quarto']} se encontra ocupado pelo hóspede "
                  f"pelo hóspede: {item['nome_hospede']}.")
 
-def status_quartos():
+def status_quarto():
     print("\n =========== ALTERAR STATUS DO QUARTO ===============")
 
     for item in quartos:
@@ -126,7 +126,8 @@ def status_quartos():
         escolha = int(input('\n Escolha o quarto que deseja alterar: '))
     except ValueError:
         print("Coloque um número de quarto válido!")
-        continue
+        return
+        
     quarto_encontrado = False
 
     for item in quartos:
@@ -165,14 +166,14 @@ def check_out():
     for item in quartos:
         if item["status"] == "ocupado":
             print(
-                f'Quarto {item['num_quarto']} - '
-                f' Hóspede: {item['nome_hospede']}'
+                f"Quarto {item['num_quarto']} - "
+                f" Hóspede: {item['nome_hospede']}"
                 )
     try:     
         escolha = int(input("\n Escolha o número do quarto para o Check-out: "))
     except ValueError:
         print("Digite um número de quarto válido!")
-        continue
+        return
     quarto_encontrado = False   
 
     for item in quartos:
@@ -182,7 +183,7 @@ def check_out():
                 valor_total = item["diaria"] * item["dias"]
                 print(
                     f"Check out do hóspede"
-                    f"{item["nome_hospede"]} realizado."
+                    f"{item['nome_hospede']} realizado."
                 )
 
                 print(f"Diária: R$ {item['diaria']:.2f}")
@@ -211,7 +212,7 @@ def liberar_quarto():
         escolha = int(input("Escolha o quarto para ser liberado: "))
     except ValueError:
         print("Digite um número de quarto válido!")
-        continue
+        return
     quarto_encontrado = False
 
     for item in quartos:
@@ -220,7 +221,7 @@ def liberar_quarto():
             if item["status"]  == "em limpeza":
                 item["status"] = "livre"
                 print(
-                    f"\n Quarto {item["num_quarto"]} foi liberado"
+                    f"\n Quarto {item['num_quarto']} foi liberado"
                     f" e está livre.")
             else:
                 print("\n Esse quarto não está em limpeza.")
