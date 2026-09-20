@@ -64,6 +64,7 @@ def check_in():
         escolha = int(input("\nEscolha o quarto a ser hospedado: "))
     except ValueError:
         print("Digite um número de quarto válido!")
+        return
 
 
     quarto_encontrado= False
@@ -104,20 +105,22 @@ def check_in():
             print(f"Diária: R$ {item['diaria']:.2f}")
             print(f"Quantidade de dias de hospedagem: {item['dias']}")
 
-            if quarto_encontrado == False:
-                print("Esse quarto não existe. Escolha um quarto válido.")
+    if quarto_encontrado == False:
+        print("Esse quarto não existe. Escolha um quarto válido.")
 
 def mapa_quartos():
     print(" =============== MAPA DE QUARTOS =============\n")
     for item in quartos:
-        if item["status"] == status_quartos[0] or item["status"] == status_quartos[2]:
-
+        if item["status"] == status_quartos[0]:
             print(f"O Quarto {item['num_quarto']} está {item['status']}")
 
-        else:
+        elif item["status"] == status_quartos[2]:
+            print(f"O Quarto {item['num_quarto']} está {item['status']}")
+
+        elif item["status"] == status_quartos[1]:
             print(
                 f"O Quarto {item['num_quarto']} se encontra ocupado pelo hóspede "
-                 f"pelo hóspede: {item['nome_hospede']}.")
+                f"{item['nome_hospede']}.")
 
 def status_quarto():
     print("\n =========== ALTERAR STATUS DO QUARTO ===============")
@@ -161,8 +164,8 @@ def status_quarto():
                 f" {item['status']}."
                         )
 
-        if quarto_encontrado == False:
-            print("Esse quarto não existe.")
+    if quarto_encontrado == False:
+        print("Esse quarto não existe.")
             
 def check_out():
     print("\n============= CHECK-OUT ============") 

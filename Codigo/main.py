@@ -1,4 +1,4 @@
-from utils import check_in, mapa_quartos, status_quarto, check_out
+from utils import check_in, mapa_quartos, status_quarto, check_out, liberar_quarto
 
 opcao = None
 
@@ -12,20 +12,26 @@ while opcao != 0:
   [0] Sair 
         ''')
 
-  opcao = int(input("Digite uma das opções acima: "))
+  try:
+    opcao = int(input("Digite uma das opções acima: "))
+  except ValueError:
+    print("Digite uma opção válida.")
+    continue
 
   if opcao == 1:
     check_in()
-    break
 
   elif opcao == 2:
     mapa_quartos()
-    break
 
   elif opcao == 3:
     status_quarto()
-    break
 
   elif opcao == 4:
     check_out()
-    break
+
+  elif opcao == 5:
+    liberar_quarto()
+
+  elif opcao != 0:
+    print("Opção inválida.")
