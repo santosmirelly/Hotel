@@ -180,7 +180,7 @@ def check_out():
         if item["num_quarto"] == escolha:
             quarto_encontrado = True
             if item["status"] == "ocupado":
-                valor_total = item["diaria"] * item["dias"]
+                valor_total = int(item["diaria"]) * int(item["dias"])
                 print(
                     f"Check out do hóspede"
                     f"{item['nome_hospede']} realizado."
