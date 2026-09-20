@@ -1,6 +1,15 @@
-from utils import check_in, mapa_quartos, status_quarto, check_out, liberar_quarto
+from utils import (
+  carregar_dados,
+  check_in,
+  mapa_quartos,
+  status_quarto,
+  check_out,
+  liberar_quarto
+)
 
 opcao = None
+
+carregar_dados()
 
 while opcao != 0:
   print('''

@@ -1,3 +1,5 @@
+import json
+
 #Funções
 status_quartos = ["livre", "ocupado", "em limpeza"]
 quartos = [{
@@ -37,6 +39,21 @@ quartos = [{
     "status": status_quartos[0]
 }
 ]
+
+def salvar_dados():
+    with open("quartos.json", "w", encoding="utf-8") as arquivo:
+        json.dump(quartos, arquivo, ensure_ascii=False, indent=4)
+
+def carregar_dados():
+    try:
+        with open("quartos.json", "r", encoding="utf-8") as arquivo:
+            dados = json.load(arquivo)
+    except FileNotFoundError:
+        return
+
+    quartos.clear()
+    quartos.extend(dados)
+
 resposta = None
 def check_in():
 
@@ -98,6 +115,7 @@ def check_in():
             item["diaria"] = diaria
             item["dias"] = dias
             item["status"] = "ocupado"
+            salvar_dados()
             print(
                 f"\nQuarto {item['num_quarto']} foi ocupado pelo hóspede "
                 f"{item['nome_hospede']}")
@@ -159,6 +177,7 @@ def status_quarto():
                 print("Opção Inválida!!")
                 continue
 
+            salvar_dados()
             print(
                 f"O quarto {item['num_quarto']} agora está: "
                 f" {item['status']}."
@@ -201,6 +220,7 @@ def check_out():
                 item["diaria"] = 0
                 item["dias"] = 0
                 item["status"] = "em limpeza"
+                salvar_dados()
 
                 print("O quarto agora está em limpeza.")
 
@@ -226,6 +246,7 @@ def liberar_quarto():
             quarto_encontrado = True
             if item["status"]  == "em limpeza":
                 item["status"] = "livre"
+                salvar_dados()
                 print(
                     f"\n Quarto {item['num_quarto']} foi liberado"
                     f" e está livre.")
