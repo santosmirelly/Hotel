@@ -44,13 +44,16 @@ def check_in():
     try:
         idade=int(input('Idade do hóspede: '))
     except ValueError:
-        print("Fale uma idade válida!")
+        print("Digite uma idade válida!")
+        return
 
     if idade <= 0:
-        print("Fale uma idade válida!")
+        print("Digite uma idade válida!")
+        return
 
     if idade < 18:
         print("O hóspede deve ser maior de idade!")
+        return
 
     print("====QUARTOS DISPONIVEIS====\n")
 
