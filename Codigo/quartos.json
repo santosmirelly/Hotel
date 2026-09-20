@@ -1,0 +1,42 @@
+[
+    {
+        "num_quarto": 1,
+        "nome_hospede": "0",
+        "idade_hospede": "",
+        "diaria": 0,
+        "dias": 0,
+        "status": "em limpeza"
+    },
+    {
+        "num_quarto": 2,
+        "nome_hospede": "danie",
+        "idade_hospede": 18,
+        "diaria": 20,
+        "dias": 40,
+        "status": "ocupado"
+    },
+    {
+        "num_quarto": 3,
+        "nome_hospede": "0",
+        "idade_hospede": "",
+        "diaria": 0,
+        "dias": 0,
+        "status": "ocupado"
+    },
+    {
+        "num_quarto": 4,
+        "nome_hospede": "0",
+        "idade_hospede": "",
+        "diaria": 0,
+        "dias": 0,
+        "status": "ocupado"
+    },
+    {
+        "num_quarto": 5,
+        "nome_hospede": "0",
+        "idade_hospede": "",
+        "diaria": 0,
+        "dias": 0,
+        "status": "livre"
+    }
+]
